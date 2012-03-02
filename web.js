@@ -38,6 +38,6 @@ app.post('/:distid/:keyaccess/:keysecret', function (req, res) {
 	var files = ccf.parsePayload(payload);
 	var xml = ccf.buildXML(files, payload.after);
 	var date = new Date().toGMTString();
-	var signature = ccf.createSignature(secret_key, date);
-	ccf.sendRequest(distid, date, access_key, signature, xml);
+	var signature = ccf.createSignature(keysecret, date);
+	ccf.sendRequest(distid, date, keyaccess, signature, xml);
 });
