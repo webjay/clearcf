@@ -36,6 +36,7 @@ app.post('/:distid/:keyaccess/:keysecret', function (req, res) {
 	var payload = JSON.parse(req.body.payload);
 	var ccf = new clearcf();
 	var files = ccf.parsePayload(payload);
+	console.log(files);
 	var xml = ccf.buildXML(files, payload.after);
 	var date = new Date().toGMTString();
 	var signature = ccf.createSignature(keysecret, date);
