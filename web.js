@@ -4,12 +4,8 @@ var clearcf = require(__dirname + '/lib/clearcf.js');
 
 // Configuration
 app.configure(function(){
-	// app.set('views', __dirname + '/views');
-	// app.set('view engine', 'coffee');
-	// app.register('.coffee', require('coffeekup').adapters.express);
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
-	// app.use(express.static(__dirname + '/public'));
 	app.use(app.router);
 });
 
@@ -30,6 +26,8 @@ app.get('/', function (req, res) {
 });
 
 app.post('/:distid/:keyaccess/:keysecret', function (req, res) {
+	res.end('Got it; working on it...');
+	//
 	var distid = req.params.distid;
 	var keyaccess = req.params.keyaccess;
 	var keysecret = req.params.keysecret;
